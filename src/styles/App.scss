@@ -1,0 +1,11 @@
+@import "./setup";
+@import "./colors";
+@import "./header";
+@import "./modal";
+@import "./gallery";
+
+body {
+  position: relative;
+  background: $beige;
+  color: $darkPurple;
+}
