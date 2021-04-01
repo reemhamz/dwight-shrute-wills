@@ -53,7 +53,7 @@ function App() {
 
   // uploads the file to database
   const uploadWill = (e) => {
-    e.preventDefault();
+    setFileName("");
     dbRef.push({
       fileName: fileName,
       date: timeNow,
@@ -78,7 +78,7 @@ function App() {
     <div className="App">
       <header>
         <h1>
-          Welcome to Epilogue Wills{" "}
+          Welcome to Epilogue Wills
           <span role="img" aria-label="skull">
             💀
           </span>
@@ -87,14 +87,14 @@ function App() {
           </span>
         </h1>
         <h2>
-          Upload your signed PDF documents{" "}
+          Upload your signed PDF documents
           <span role="img" aria-label="ink pen">
             🖋
           </span>
         </h2>
       </header>
       <div className="form">
-        <form action="#">
+        <form action="/">
           <input
             type="file"
             name="fileUpload"
@@ -102,9 +102,16 @@ function App() {
             multiple="multiple"
             onChange={fileChange}
           />
-          <button type="submit" onClick={uploadWill}>
-            Upload
-          </button>
+
+          {fileName === "" ? (
+            <button type="submit" onClick={uploadWill} disabled>
+              Upload
+            </button>
+          ) : (
+            <button type="submit" onClick={uploadWill}>
+              Upload
+            </button>
+          )}
         </form>
       </div>
 
